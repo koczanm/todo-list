@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Navbar from "./components/layout/Navbar";
 import Dashboard from "./components/dashboard/Dashboard";
 import TodoDetails from "./components/todos/TodoDetails";
+import CreateTodo from "./components/todos/CreateTodo";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
 
@@ -16,6 +17,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Dashboard} />
             <Route path="/todo/:id" component={TodoDetails} />
+            <Route path="/create" component={CreateTodo} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
           </Switch>
