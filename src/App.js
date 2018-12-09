@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import Navbar from "./components/layout/Navbar";
 import Dashboard from "./components/dashboard/Dashboard";
+import TodoDetails from "./components/todos/TodoDetails";
 
 class App extends Component {
   render() {
@@ -12,6 +13,7 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route exact path="/" component={Dashboard} />
+            <Route path="/todo/:id" component={TodoDetails} />
           </Switch>
         </div>
       </BrowserRouter>
