@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { compose } from "redux";
 import { connect } from "react-redux";
+import { firestoreConnect } from "react-redux-firebase";
 
 import Notifications from "./Notifications";
 import TodoList from "../todos/TodoList";
@@ -25,8 +27,11 @@ class Dashboard extends Component {
 
 const mapStateToProps = state => {
   return {
-    todos: state.todo.todos
+    todos: state.firestore.ordered.todos
   };
 };
 
-export default connect(mapStateToProps)(Dashboard);
+export default compose(
+  firestoreConnect(["todos"]),
+  connect(mapStateToProps)
+)(Dashboard);

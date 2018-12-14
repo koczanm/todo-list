@@ -8,8 +8,8 @@ import { reactReduxFirebase, getFirebase } from "react-redux-firebase";
 
 import * as serviceWorker from "./serviceWorker";
 import App from "./App";
+import firebase from "./config/fbConfig";
 import rootReducer from "./reducers/rootReducer";
-import fbConfig from "./config/fbConfig";
 
 import "./index.css";
 
@@ -17,8 +17,11 @@ const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
-    reactReduxFirebase(fbConfig),
-    reduxFirestore(fbConfig)
+    reactReduxFirebase(firebase, {
+      userProfile: "users",
+      enableLogging: false
+    }),
+    reduxFirestore(firebase)
   )
 );
 
