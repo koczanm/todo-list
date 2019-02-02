@@ -18,7 +18,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard container">
         <div className="row">
-          <div className="col s12 m5">
+          <div className="col s12 m6">
             <TodoList todos={todos} />
           </div>
           <div className="col s12 m5 offset-m1">

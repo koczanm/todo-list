@@ -18,7 +18,7 @@ const Notifications = props => {
     : null;
 
   return (
-    <div>
+    <div className="section">
       <div className="card z-depth-0">
         <div className="card-content">
           <span className="card-title">Notifications</span>
