@@ -15,7 +15,7 @@ const SingedInLinks = props => {
       </li>
       <li>
         <NavLink to="/" className="btn btn-floating cyan darken-1">
-          MK
+          {props.profile.initials}
         </NavLink>
       </li>
     </ul>
