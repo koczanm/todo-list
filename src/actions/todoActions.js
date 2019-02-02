@@ -1,13 +1,16 @@
 export const createTodo = todo => {
   return (dispatch, getState, { getFirestore }) => {
     const firestore = getFirestore();
+    const profile = getState().firebase.profile;
+    const authorId = getState().firebase.auth.uid;
+
     firestore
       .collection("todos")
       .add({
         ...todo,
-        authorId: 123,
-        authorFirstName: "Will",
-        authorLastName: "Smith",
+        authorId: authorId,
+        authorFirstName: profile.firstName,
+        authorLastName: profile.lastName,
         createdAt: new Date()
       })
       .then(() => {

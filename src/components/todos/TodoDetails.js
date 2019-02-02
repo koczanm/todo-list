@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
@@ -22,7 +23,7 @@ const TodoDetails = props => {
           <div>
             Posted by {todo.authorFirstName} {todo.authorLastName}
           </div>
-          <div>9th December, 2 A.M.</div>
+          <div>{moment(todo.createdAt.toDate()).calendar()}</div>
         </div>
       </div>
     </div>
